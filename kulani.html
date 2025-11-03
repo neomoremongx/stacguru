@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulani's Precast Houses | Modern Shack Installation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --silver: #c0c0c0;
+            --light-silver: #e8e8e8;
+            --dark-silver: #a0a0a0;
+            --grey: #808080;
+            --dark-grey: #404040;
+            --black: #121212;
+            --white: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--silver);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--silver);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--silver);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--silver);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--silver);
+            border-color: var(--silver);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--silver);
+            color: var(--black);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--silver);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--silver);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--silver);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+                        url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/571149814_122196275432296319_4887607290978649369_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFOQp3mGHwCpaJNCA9949E8Mg5EK9q2EYcyDkQr2rYRh5OKofERPaeWSrox1-Ihq6oFph0x-q9EAzAG9_WgAEjK&_nc_ohc=RA7oI-3fl2MQ7kNvwGGSciU&_nc_oc=AdlaDkm1qYFdsJ65NwyzL41KiF5kp1ifxb1iyHVcarIactt9ElQv8v_lXBYd9xQrJAc&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=2IHwmn3IhGmeG4qa-_eGlA&oh=00_AfjxxVFlfPcBWJ1_soXI6TLtpVkKKuWB4HAmcQBUEuKfIA&oe=690E7AF7');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--light-silver);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--dark-grey);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            animation: fadeLeft 1s ease;
+        }
+        
+        .about-image {
+            height: 400px;
+            background: url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/574332335_122197107176296319_3616082187928309585_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG0F-fGrzf7_KqYTv8ZiKCtAUz8sj591KoBTPyyPn3Uqv9SeZyujjfXGWB02sRTNeZAWJUybvDYqzvtZCq_LNsz&_nc_ohc=dT4vIWn19foQ7kNvwF0jW0v&_nc_oc=AdnYZwvPHrbAp4xq3OAPONQ-UPlZKAjTdT2soNyXCby7PlEDPVJ-UlWf_EHnUIqPoVo&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=ic8A-nLsofeqhMBNNI0Wvw&oh=00_AfhFst0akiJNJzUXWGDJkwNwqIybXDh_7nyAkqi5Pa-2cQ&oe=690E6894');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            animation: fadeRight 1s ease;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--black);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--dark-grey);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--grey);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--silver);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--silver);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: var(--silver);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--dark-grey);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover:after {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--black);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            animation: fadeLeft 1s ease;
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: var(--silver);
+        }
+        
+        .hours {
+            margin-top: 30px;
+        }
+        
+        .hours h3 {
+            margin-bottom: 15px;
+            color: var(--silver);
+        }
+        
+        .hours p {
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background-color: var(--dark-grey);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--grey);
+            animation: fadeRight 1s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--grey);
+            border: 1px solid var(--grey);
+            border-radius: 5px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--silver);
+            background-color: var(--dark-grey);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-grey);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--silver);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--silver);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--grey);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--silver);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--grey);
+            font-size: 0.9rem;
+            color: var(--silver);
+        }
+        
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-grey);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Kulani's Precast</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Modern Precast Houses</h1>
+            <p>Quality, durable, and affordable precast concrete structures for modern living</p>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Kulani's Precast Houses specializes in modern shack installation and precast concrete structures. With years of experience in the industry, we provide high-quality, durable, and affordable housing solutions.</p>
+                    <p>Our team of skilled professionals is dedicated to delivering exceptional service and ensuring customer satisfaction with every project we undertake.</p>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Precast House Installation</h3>
+                    <p>Professional installation of modern precast concrete houses designed for durability and comfort.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Household Supplies</h3>
+                    <p>We provide all necessary household supplies to complement your new precast structure.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery Service</h3>
+                    <p>Convenient delivery of materials and structures to your location throughout South Africa.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Booking</h3>
+                    <p>Easy online booking system for consultations, quotes, and project scheduling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Our Work</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/571186560_122196098702296319_469817321350366133_n.jpg?stp=c120.0.720.720a_dst-jpg_s206x206_tt6&_nc_cat=103&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeGwcIOGO3-y1JflrAO-5yQYKbFAJiE6Pn0psUAmITo-fbt8qJdYIMwoxkfttGoFpuZbW3rriiwhsddXbm1kNsnw&_nc_ohc=r8q0YL3SZpYQ7kNvwEXrAbd&_nc_oc=AdmnYYgsLkrzRiu1HvmY-iyVo4fxWd7h0uYVs9kvaoW0C0Iz1nNarlyH6_r0awUfAco&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=csvK8VG3BhpK-U8pPlQZLw&oh=00_AfgK-ytIWE1POkbgsjCvX0YI-b7lHHWTGhlzlyNUtgZs8w&oe=690E6553" alt="Precast House">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/550367809_122192182214296319_309219070852145589_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeFdg0FHkAOyLCEnUgMDcmqC1mzf3kGdI-7WbN_eQZ0j7t2UFmVjaGkt7HhMxyBPfq9ogY45L5HqrDpkjyq4JXuz&_nc_ohc=lzkxRCFZVbIQ7kNvwGcc5wO&_nc_oc=AdlBBW0wq77A8838N-IjNFGsHAN60Ndq6ZlVPk6Z39HPWZAqlwBdClHlbRcO8cQB5os&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=hE3B4pv2KBJW_O2zLtsfDg&oh=00_Afh9uugC4KMj6IDON3LPYQ6S_M_k7a2bEXLdoon8h4hxeA&oe=690E5FED" alt="Precast House">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/541745688_122189876558296319_9162353542145746501_n.jpg?stp=c0.79.722.722a_dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeHRzrliauH5225SJ7QPPIpfeWqBd_W8ydl5aoF39bzJ2UTuDAAQhtiQUZNl3QVrWLBHZdWKL9h00n0IzAiw2eZG&_nc_ohc=Yg9HIa-WODAQ7kNvwFa62NC&_nc_oc=Adkb1qelyvcd93-0h0Xyr8AeNyKVLotO08Rf8INr6V17Ctj-Y29hRAhQJ-jUYtyc6PQ&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=8UkuYFW9D14Tg_wkNn6l3g&oh=00_AfiiYLhCZKULTB35mag_yE4vgQ7ISQovlfQPTxcJ3kwiqA&oe=690E58A1" alt="Precast House">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/535026985_122187761102296319_480580313930353644_n.jpg?stp=c0.79.722.722a_dst-jpg_s206x206_tt6&_nc_cat=101&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeEGWmVrP3DcLN9NMlbQ7hrM0dEvvg4vbT3R0S--Di9tPaiMPnrubFOKMULlHW-sY6Il0NXHujnoyisQjxnDtYT8&_nc_ohc=pBAhaZXpcK8Q7kNvwHqVTgS&_nc_oc=AdlbAVQpT3Mp42m3FPww6W1mDLwrRsD9q7PpuZVH3qTK9qVzFjvwlPt8XLIpyGPDnRI&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=fKQOioHpdbABsF44Lp_GvA&oh=00_Afh3RhpjqAS9CMKVLI01XPXBqKd0W1UjOCYSXBJkLr9bwA&oe=690E5957" alt="Precast House">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/500020203_122175972500296319_1437167328541235140_n.jpg?stp=c0.79.715.715a_dst-jpg_s206x206_tt6&_nc_cat=100&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeHfn1UqGjjXCpSumPXsh6ZJsmgl10SklamyaCXXRKSVqRCF1_z7_5tNV9jd7U_Au0A6Kipu_SlvlmdG3ULsUn-R&_nc_ohc=w2UC8rI04M8Q7kNvwFxiF6V&_nc_oc=AdmJ4qEuWNYgDwEe2mxEI443-RcGr761yL_-PQCF2HaMIXte2Fg5_C1whyot-KvxMnU&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=OT23qkCf7AzCvEV8esSU0A&oh=00_Afg3MnL0X66Vcl1pXq3iBzqDnmDEdORo92It4lNRZqdVsA&oe=690E53C1" alt="Precast House">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/497524697_122175021686296319_3753759529376306733_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFy-PU2BQjsoLA0CpLjp1FPir_q2lBcjjmKv-raUFyOORlKOGzhwCIMBKmDzp_bG2PXmdDgcmlBY0sU0EE8oYDu&_nc_ohc=x3qONKND5eUQ7kNvwFLPHbC&_nc_oc=Adn4firxNuBGFsWPhPdJ8mDrL1zq-CQl3TdKYTsBog65SbXySa6upVzmshC_fCDvCeY&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=Eo-tjRdx9KbZpoq61tZMCQ&oh=00_AfhpyKDoqDrlwU2o_Ktl3NaFVjTYkKIWFj-1M9rf5HrEjw&oe=690E6845" alt="Precast House">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Get in touch with us for quotes, consultations, or any questions about our precast houses and services.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Daveyton Ext 2, South Africa</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>072 724 2884</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>+27 72 724 1884</p>
+                        </div>
+                    </div>
+                    <div class="hours">
+                        <h3>Business Hours</h3>
+                        <p><strong>Always Open</strong></p>
+                        <p>We're available 24/7 to answer your queries and take bookings</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="precast-house">Precast House Installation</option>
+                                <option value="supplies">Household Supplies</option>
+                                <option value="delivery">Delivery Service</option>
+                                <option value="consultation">Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kulani's Precast</h3>
+                    <p>Quality precast concrete structures for modern living in South Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Daveyton Ext 2, South Africa</li>
+                        <li><i class="fas fa-phone"></i> 072 724 2884</li>
+                        <li><i class="fab fa-whatsapp"></i> +27 72 724 1884</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li>Precast House Installation</li>
+                        <li>Household Supplies</li>
+                        <li>Delivery Service</li>
+                        <li>Online Booking</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Kulani's Precast Houses. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.backgroundColor = 'rgba(18, 18, 18, 0.9)';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
